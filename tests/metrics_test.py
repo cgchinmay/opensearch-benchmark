@@ -562,7 +562,7 @@ class OsMetricsTests(TestCase):
                 "shard-count": 3
             },
             "test_procedure": "append",
-            "provision-config-instance": "defaults",
+            "cluster-config": "defaults",
             "name": "indexing_throughput",
             "value": throughput,
             "unit": "docs/s",
@@ -594,7 +594,7 @@ class OsMetricsTests(TestCase):
                 "shard-count": 3
             },
             "test_procedure": "append",
-            "provision-config-instance": "defaults",
+            "cluster-config": "defaults",
             "name": "indexing_throughput",
             "value": throughput,
             "unit": "docs/s",
@@ -635,7 +635,7 @@ class OsMetricsTests(TestCase):
                 "shard-count": 3
             },
             "test_procedure": "append",
-            "provision-config-instance": "defaults",
+            "cluster-config": "defaults",
             "name": "indexing_throughput",
             "value": throughput,
             "unit": "docs/s",
@@ -675,7 +675,7 @@ class OsMetricsTests(TestCase):
                 "shard-count": 3
             },
             "test_procedure": "append",
-            "provision-config-instance": "defaults",
+            "cluster-config": "defaults",
             "name": "custom_metric",
             "total": 1234567,
             "per-shard": [17, 18, 1289, 273, 222],
@@ -723,7 +723,7 @@ class OsMetricsTests(TestCase):
                 "shard-count": 3
             },
             "test_procedure": "append",
-            "provision-config-instance": "defaults",
+            "cluster-config": "defaults",
             "name": "custom_metric",
             "total": 1234567,
             "per-shard": [17, 18, 1289, 273, 222],
@@ -1253,7 +1253,7 @@ class OsTestExecutionStoreTests(TestCase):
                             "workload": "unittest",
                             "test_procedure": "index",
                             "workload-revision": "abc1",
-                            "provision-config-instance": "defaults",
+                            "cluster-config": "defaults",
                             "results": {
                                 "young_gc_time": 100,
                                 "old_gc_time": 5,
@@ -1295,10 +1295,10 @@ class OsTestExecutionStoreTests(TestCase):
                             test_execution_timestamp=OsTestExecutionStoreTests.TEST_EXECUTION_TIMESTAMP,
                             pipeline="from-sources", user_tags={"os": "Linux"}, workload=t, workload_params={"shard-count": 3},
                             test_procedure=t.default_test_procedure,
-                            provision_config_instance="defaults",
-                            provision_config_instance_params={"heap_size": "512mb"},
+                            cluster_config="defaults",
+                            cluster_config_params={"heap_size": "512mb"},
                             plugin_params=None,
-                            workload_revision="abc1", provision_config_revision="abc12333", distribution_version="5.0.0",
+                            workload_revision="abc1", cluster_config_revision="abc12333", distribution_version="5.0.0",
                             distribution_flavor="default", revision="aaaeeef",
                             results=OsTestExecutionStoreTests.DictHolder(
                                 {
@@ -1337,15 +1337,15 @@ class OsTestExecutionStoreTests(TestCase):
             },
             "test_procedure": "index",
             "workload-revision": "abc1",
-            "provision-config-instance": "defaults",
-            "provision-config-instance-params": {
+            "cluster-config": "defaults",
+            "cluster-config-params": {
                 "heap_size": "512mb"
             },
             "cluster": {
                 "revision": "aaaeeef",
                 "distribution-version": "5.0.0",
                 "distribution-flavor": "default",
-                "provision-config-revision": "abc12333",
+                "cluster-config-revision": "abc12333",
             },
             "results": {
                 "young_gc_time": 100,
@@ -1401,10 +1401,10 @@ class OsResultsStoreTests(TestCase):
                             test_execution_timestamp=OsResultsStoreTests.TEST_EXECUTION_TIMESTAMP,
                             pipeline="from-sources", user_tags={"os": "Linux"}, workload=t, workload_params=None,
                             test_procedure=t.default_test_procedure,
-                            provision_config_instance="4gheap",
-                            provision_config_instance_params=None,
+                            cluster_config="4gheap",
+                            cluster_config_params=None,
                             plugin_params={"some-param": True},
-                            workload_revision="abc1", provision_config_revision="123ab", distribution_version="5.0.0",
+                            workload_revision="abc1", cluster_config_revision="123ab", distribution_version="5.0.0",
                             distribution_flavor="oss", results=metrics.GlobalStats(
                                 {
                                     "young_gc_time": 100,
@@ -1446,10 +1446,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "plugin-params": {
                     "some-param": True
                 },
@@ -1476,10 +1476,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "plugin-params": {
                     "some-param": True
                 },
@@ -1512,10 +1512,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "plugin-params": {
                     "some-param": True
                 },
@@ -1551,11 +1551,11 @@ class OsResultsStoreTests(TestCase):
                             test_execution_timestamp=OsResultsStoreTests.TEST_EXECUTION_TIMESTAMP,
                             pipeline="from-sources", user_tags={"os": "Linux"}, workload=t, workload_params=None,
                             test_procedure=t.default_test_procedure,
-                            provision_config_instance="4gheap",
-                            provision_config_instance_params=None,
+                            cluster_config="4gheap",
+                            cluster_config_params=None,
                             plugin_params=None,
                             workload_revision="abc1",
-                            provision_config_revision="123ab",
+                            cluster_config_revision="123ab",
                             distribution_version=None,
                             distribution_flavor=None, results=metrics.GlobalStats(
                 {
@@ -1597,10 +1597,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "active": True,
                 "name": "old_gc_time",
                 "value": {
@@ -1623,10 +1623,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "active": True,
                 "name": "throughput",
                 "task": "index #1",
@@ -1655,10 +1655,10 @@ class OsResultsStoreTests(TestCase):
                     "os": "Linux"
                 },
                 "workload": "unittest-workload",
-                "provision-config-revision": "123ab",
+                "cluster-config-revision": "123ab",
                 "workload-revision": "abc1",
                 "test_procedure": "index",
-                "provision-config-instance": "4gheap",
+                "cluster-config": "4gheap",
                 "active": True,
                 "name": "young_gc_time",
                 "value": {
@@ -1987,11 +1987,11 @@ class FileTestExecutionStoreTests(TestCase):
                             test_execution_timestamp=FileTestExecutionStoreTests.TEST_EXECUTION_TIMESTAMP,
                             pipeline="from-sources", user_tags={"os": "Linux"}, workload=t, workload_params={"clients": 12},
                             test_procedure=t.default_test_procedure,
-                            provision_config_instance="4gheap",
-                            provision_config_instance_params=None,
+                            cluster_config="4gheap",
+                            cluster_config_params=None,
                             plugin_params=None,
                             workload_revision="abc1",
-                            provision_config_revision="abc12333",
+                            cluster_config_revision="abc12333",
                             distribution_version="5.0.0",
                             distribution_flavor="default", revision="aaaeeef",
                             results=FileTestExecutionStoreTests.DictHolder(
@@ -2029,8 +2029,8 @@ class StatsCalculatorTests(TestCase):
         cfg.add(config.Scope.application, "system", "time.start", datetime.datetime.now())
         cfg.add(config.Scope.application, "system", "test_execution.id", "6ebc6e53-ee20-4b0c-99b4-09697987e9f4")
         cfg.add(config.Scope.application, "results_publishing", "datastore.type", "in-memory")
-        cfg.add(config.Scope.application, "builder", "provision_config_instance.names", ["unittest_provision_config_instance"])
-        cfg.add(config.Scope.application, "builder", "provision_config_instance.params", {})
+        cfg.add(config.Scope.application, "builder", "cluster_config.names", ["unittest_cluster_config"])
+        cfg.add(config.Scope.application, "builder", "cluster_config.params", {})
         cfg.add(config.Scope.application, "builder", "plugin.params", {})
         cfg.add(config.Scope.application, "test_execution", "user.tag", "")
         cfg.add(config.Scope.application, "test_execution", "pipeline", "from-sources")
@@ -2120,8 +2120,8 @@ class StatsCalculatorTests(TestCase):
         cfg.add(config.Scope.application, "system", "time.start", datetime.datetime.now())
         cfg.add(config.Scope.application, "system", "test_execution.id", "6ebc6e53-ee20-4b0c-99b4-09697987e9f4")
         cfg.add(config.Scope.application, "results_publishing", "datastore.type", "in-memory")
-        cfg.add(config.Scope.application, "builder", "provision_config_instance.names", ["unittest_provision_config_instance"])
-        cfg.add(config.Scope.application, "builder", "provision_config_instance.params", {})
+        cfg.add(config.Scope.application, "builder", "cluster_config.names", ["unittest_cluster_config"])
+        cfg.add(config.Scope.application, "builder", "cluster_config.params", {})
         cfg.add(config.Scope.application, "builder", "plugin.params", {})
         cfg.add(config.Scope.application, "test_execution", "user.tag", "")
         cfg.add(config.Scope.application, "test_execution", "pipeline", "from-sources")
@@ -2188,7 +2188,7 @@ class GlobalStatsCalculatorTests(TestCase):
                                         "test-execution-id": "fb26018b-428d-4528-b36b-cf8c54a303ec",
                                         "test-execution-timestamp": "20200728T003905Z", "environment": "local",
                                         "workload": "geonames", "test_procedure": "append-fast-with-conflicts",
-                                        "provision-config-instance": "defaults", "name": "service_time", "value": 72.67997100007051,
+                                        "cluster-config": "defaults", "name": "service_time", "value": 72.67997100007051,
                                         "unit": "ms", "sample-type": "normal",
                                         "meta": {"source_revision": "7f634e9f44834fbc12724506cc1da681b0c3b1e3",
                                                  "distribution_version": "7.6.0", "distribution_flavor": "oss",
