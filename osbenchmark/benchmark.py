@@ -475,7 +475,7 @@ def create_arg_parser():
              "(default: localhost:9200).",
         default="")  # actually the default is pipeline specific and it is set later
     test_execution_parser.add_argument(
-        "--load-worker-coordinator-hosts",
+        "--worker-ips",
         help="Define a comma-separated list of hosts which should generate load (default: localhost).",
         default="localhost")
     test_execution_parser.add_argument(
@@ -904,8 +904,8 @@ def dispatch_sub_command(arg_parser, args, cfg):
             cfg.add(
                 config.Scope.applicationOverride,
                 "worker_coordinator",
-                "load_worker_coordinator_hosts",
-                opts.csv_to_list(args.load_worker_coordinator_hosts))
+                "worker_ips",
+                opts.csv_to_list(args.worker_ips))
             cfg.add(config.Scope.applicationOverride, "workload", "test.mode.enabled", args.test_mode)
             cfg.add(config.Scope.applicationOverride, "workload", "latency.percentiles", args.latency_percentiles)
             cfg.add(config.Scope.applicationOverride, "workload", "throughput.percentiles", args.throughput_percentiles)
